@@ -79,3 +79,84 @@ def largest_element(num):
 
 num = [1,2,3,4,5,6,17]
 print(largest_element(num))
+
+
+# 6 Two Sum
+
+def two_sum(arr, target):
+    result = []
+    for i in range(0, len(arr)):
+        for j in range (i+1, len(arr)):
+            if(arr[i] + arr[j] == target):
+                result.append([arr[i],arr[j]])
+    return result
+arr = [1,2,3,4,5,6,7,8]
+target = 9
+print(two_sum(arr,target))
+
+
+#7 Best & worst time to buy stock
+
+def stock_buy(stock_arr):
+
+    if(len(stock_arr)<2):
+        return "Not Enough Data"
+
+    min_price = stock_arr[0]
+    max_price = stock_arr[0]
+
+    for x in range(len(stock_arr)):
+        if stock_arr[x] < min_price:
+            min_price = stock_arr[x]
+        
+        elif stock_arr[x] > max_price:
+            max_price = stock_arr[x]
+
+    return min_price, max_price
+
+stock_arr = [2]
+print("The best & worst day to buy stocks is: ",stock_buy(stock_arr))
+
+
+#8 Returns true or false if duplicates in an array
+
+def find_duplicate(arr):
+
+    for i in range(len(arr)):
+        for j in range (i+1, len(arr)):
+            if(arr[i] == arr[j]):
+                return True
+            else:
+                return False
+
+arr = [1, 0, 2, 3, 4]
+print(find_duplicate(arr))
+
+
+#9 Product except self
+
+def ProductExceptSelf(num):
+    length = len(num)
+    
+    left = [0] * length
+    right = [0] * length
+    result = [0] * length
+
+    # Initialize the first element of left product array to 1
+    left[0] = 1
+    for i in range(1, length):
+        left[i] = left[i-1] * num[i-1]
+    
+    # Initialize the last element of right product array to 1
+    right[length - 1] = 1
+    for i in range(length-2, -1, -1):
+        right[i] = right[i+1] * num[i+1]
+
+    # Construct the result array
+    for i in range(length):
+        result[i] = left[i] * right[i]
+
+    return result
+
+num = [1, 2, 3, 4, 5]
+print(ProductExceptSelf(num))
