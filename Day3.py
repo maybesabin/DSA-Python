@@ -103,7 +103,7 @@ heros.insert(3, "black panther")
 heros [1:3] = ["doctor strange"]
 
 
-# 5. Sort the heros list in alphabetical order (Hint. Use dir() functions to list down all functions available in list)
+# 5. Sort the heros list in an alphabetical order (Hint. Use dir() functions to list down all functions available in list)
 heros.sort()
 
 
